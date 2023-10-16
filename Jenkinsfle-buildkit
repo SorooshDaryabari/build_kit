@@ -26,7 +26,7 @@ pipeline {
 
         stage("Build again") {
             steps {
-                sh "time docker build --progress=plain -t darinpope/my-app:0.0.1 -f Dockerfile-first ."
+                sh "time docker build --progress=plain -t darinpope/my-app:0.0.1 -f Dockerfile-second ."
             }
         }
 
