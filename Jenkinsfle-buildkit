@@ -30,10 +30,10 @@ pipeline {
             }
         }
 
-        // stage("Images again") {
-        //     steps {
-        //         sh "docker images"
-        //     }
-        // }
+        stage("Images again") {
+            steps {
+                sh "docker images"
+            }
+        }
     }
 }
