@@ -1,0 +1,33 @@
+pipeline {
+    agent any 
+    
+    stages {
+        stage("Clean up") {
+            steps {
+                sh "docker system prune --all --volumes --force"
+            }
+        }
+
+        stage("Build") {
+            steps {
+                sh "time docker build -t darinpope/my-app:0.0.1 -f Dockerfile-first ."
+            }
+        }
+
+        stage("Images") {
+            steps {
+                sh "docker images"
+            }
+        }
+
+        stage("Build again") {
+            steps {
+                sh "time docker build -t darinpope/my-app:0.0.2  -f Dockerfile-second ."
+            }
+        }
+
+        stage("Images again") {
+            sh "docker images"
+        }
+    }
+}
